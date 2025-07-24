@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEVGERO Admin - Painel Administrativo</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    
+    <!-- Deployment Configuration -->
+    <script src="deploy-config.js"></script>
+</head>
+<body class="admin-body">
+    <!-- Admin Navigation -->
+    <nav class="admin-navbar">
+        <div class="admin-nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i data-lucide="shield-check"></i>
+                </div>
+                <span class="logo-text">
+                    <span class="logo-dev">DEV</span><span class="logo-gero">GERO</span>
+                    <span class="admin-badge">ADMIN</span>
+                </span>
+            </div>
+            
+            <div class="admin-nav-menu">
+                <a href="#dashboard" class="admin-nav-link active">
+                    <i data-lucide="layout-dashboard"></i>
+                    Dashboard
+                </a>
+                <a href="#videos" class="admin-nav-link">
+                    <i data-lucide="video"></i>
+                    Vídeos
+                </a>
+                <a href="#books" class="admin-nav-link">
+                    <i data-lucide="book-open"></i>
+                    Livros
+                </a>
+                <a href="#materials" class="admin-nav-link">
+                    <i data-lucide="file-text"></i>
+                    Materiais
+                </a>
+                <a href="index.html" class="admin-nav-link">
+                    <i data-lucide="external-link"></i>
+                    Ver Site
+                </a>
+                <button class="admin-logout-btn" onclick="logout()">
+                    <i data-lucide="log-out"></i>
+                    Sair
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="admin-section active">
+            <div class="admin-header">
+                <h1>Dashboard Administrativo</h1>
+                <p>Gerencie todo o conteúdo do portal DEVGERO</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon video">
+                        <i data-lucide="play-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-videos">45</h3>
+                        <p>Vídeos Publicados</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon book">
+                        <i data-lucide="book-open"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-books">28</h3>
+                        <p>Livros Disponíveis</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon material">
+                        <i data-lucide="file-text"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-materials">67</h3>
+                        <p>Materiais Extras</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon users">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-users">120+</h3>
+                        <p>Estudantes Ativos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="admin-card">
+                <div class="card-header">
+                    <h2>Atividade Recente</h2>
+                    <button class="btn-secondary">
+                        <i data-lucide="refresh-cw"></i>
+                        Atualizar
+                    </button>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i data-lucide="upload"></i>
+                        </div>
+                        <div class="activity-info">
+                            <p><strong>Novo vídeo adicionado:</strong> "Cálculo I - Limites"</p>
+                            <span class="activity-time">Há 2 horas</span>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i data-lucide="book-plus"></i>
+                        </div>
+                        <div class="activity-info">
+                            <p><strong>Livro atualizado:</strong> "Python Crash Course - 2ª Ed"</p>
+                            <span class="activity-time">Ontem</span>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i data-lucide="file-plus"></i>
+                        </div>
+                        <div class="activity-info">
+                            <p><strong>Material adicionado:</strong> "Resumos de Física"</p>
+                            <span class="activity-time">2 dias atrás</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Videos Section -->
+        <section id="videos" class="admin-section">
+            <div class="admin-header">
+                <h1>Gerenciar Vídeos</h1>
+                <button class="btn-primary" onclick="openUploadModal('video')">
+                    <i data-lucide="plus"></i>
+                    Adicionar Vídeo
+                </button>
+            </div>
+
+            <div class="admin-card">
+                <div class="card-header">
+                    <h2>Vídeos Publicados</h2>
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" placeholder="Buscar vídeos..." id="video-search">
+                    </div>
+                </div>
+                
+                <div class="content-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Categoria</th>
+                                <th>Duração</th>
+                                <th>Visualizações</th>
+                                <th>Data</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="videos-table">
+                            <tr>
+                                <td>
+                                    <div class="content-info">
+                                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/default.jpg" alt="Thumbnail">
+                                        <span>Cálculo I - Introdução aos Limites</span>
+                                    </div>
+                                </td>
+                                <td><span class="category-tag matematica">Matemática</span></td>
+                                <td>15:30</td>
+                                <td>234</td>
+                                <td>20/01/2024</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon edit" title="Editar">
+                                            <i data-lucide="edit"></i>
+                                        </button>
+                                        <button class="btn-icon delete" title="Excluir">
+                                            <i data-lucide="trash-2"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="content-info">
+                                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/default.jpg" alt="Thumbnail">
+                                        <span>Python Básico - Estruturas de Dados</span>
+                                    </div>
+                                </td>
+                                <td><span class="category-tag programacao">Programação</span></td>
+                                <td>22:45</td>
+                                <td>189</td>
+                                <td>18/01/2024</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon edit" title="Editar">
+                                            <i data-lucide="edit"></i>
+                                        </button>
+                                        <button class="btn-icon delete" title="Excluir">
+                                            <i data-lucide="trash-2"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Books Section -->
+        <section id="books" class="admin-section">
+            <div class="admin-header">
+                <h1>Gerenciar Livros</h1>
+                <button class="btn-primary" onclick="openUploadModal('book')">
+                    <i data-lucide="plus"></i>
+                    Adicionar Livro
+                </button>
+            </div>
+
+            <div class="admin-card">
+                <div class="card-header">
+                    <h2>Biblioteca Digital</h2>
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" placeholder="Buscar livros..." id="book-search">
+                    </div>
+                </div>
+                
+                <div class="content-grid" id="books-grid">
+                    <div class="content-card">
+                        <div class="content-thumbnail book-thumbnail">
+                            <i data-lucide="book-open"></i>
+                        </div>
+                        <div class="content-details">
+                            <h3>Cálculo - James Stewart</h3>
+                            <p>Volume I - 8ª Edição</p>
+                            <div class="content-meta">
+                                <span class="file-size">45.2 MB</span>
+                                <span class="category-tag matematica">Matemática</span>
+                            </div>
+                            <div class="content-actions">
+                                <button class="btn-small edit">
+                                    <i data-lucide="edit"></i>
+                                    Editar
+                                </button>
+                                <button class="btn-small delete">
+                                    <i data-lucide="trash-2"></i>
+                                    Excluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <div class="content-thumbnail book-thumbnail">
+                            <i data-lucide="code-2"></i>
+                        </div>
+                        <div class="content-details">
+                            <h3>Python Crash Course</h3>
+                            <p>Eric Matthes - 2ª Edição</p>
+                            <div class="content-meta">
+                                <span class="file-size">28.7 MB</span>
+                                <span class="category-tag programacao">Programação</span>
+                            </div>
+                            <div class="content-actions">
+                                <button class="btn-small edit">
+                                    <i data-lucide="edit"></i>
+                                    Editar
+                                </button>
+                                <button class="btn-small delete">
+                                    <i data-lucide="trash-2"></i>
+                                    Excluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materials Section -->
+        <section id="materials" class="admin-section">
+            <div class="admin-header">
+                <h1>Gerenciar Materiais</h1>
+                <button class="btn-primary" onclick="openUploadModal('material')">
+                    <i data-lucide="plus"></i>
+                    Adicionar Material
+                </button>
+            </div>
+
+            <div class="admin-card">
+                <div class="card-header">
+                    <h2>Materiais Complementares</h2>
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" placeholder="Buscar materiais..." id="material-search">
+                    </div>
+                </div>
+                
+                <div class="materials-list" id="materials-list">
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i data-lucide="file-text"></i>
+                        </div>
+                        <div class="material-info">
+                            <h3>Resumos de Cálculo I</h3>
+                            <p>Resumos completos das principais fórmulas e conceitos</p>
+                            <div class="material-meta">
+                                <span>PDF • 12 páginas • 2.3 MB</span>
+                                <span class="category-tag matematica">Matemática</span>
+                            </div>
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn-icon edit" title="Editar">
+                                <i data-lucide="edit"></i>
+                            </button>
+                            <button class="btn-icon delete" title="Excluir">
+                                <i data-lucide="trash-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i data-lucide="clipboard-list"></i>
+                        </div>
+                        <div class="material-info">
+                            <h3>Lista de Exercícios - Python</h3>
+                            <p>100 exercícios práticos com soluções comentadas</p>
+                            <div class="material-meta">
+                                <span>PDF • 45 páginas • 8.7 MB</span>
+                                <span class="category-tag programacao">Programação</span>
+                            </div>
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn-icon edit" title="Editar">
+                                <i data-lucide="edit"></i>
+                            </button>
+                            <button class="btn-icon delete" title="Excluir">
+                                <i data-lucide="trash-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Upload Modal -->
+    <div id="upload-modal" class="modal">
+        <div class="modal-content upload-modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Adicionar Conteúdo</h2>
+                <span class="modal-close" onclick="closeUploadModal()">&times;</span>
+            </div>
+            
+            <form id="upload-form" class="upload-form">
+                <div class="form-group">
+                    <label for="content-title">Título</label>
+                    <input type="text" id="content-title" name="title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="content-description">Descrição</label>
+                    <textarea id="content-description" name="description" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="content-category">Categoria</label>
+                    <select id="content-category" name="category" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="matematica">Matemática</option>
+                        <option value="programacao">Programação</option>
+                        <option value="fisica">Física</option>
+                        <option value="engenharia">Engenharia</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="file-upload-group">
+                    <label for="content-file">Arquivo</label>
+                    <div class="file-upload-area" id="file-upload-area">
+                        <input type="file" id="content-file" name="file" accept=".pdf,.mp4,.avi,.mov">
+                        <div class="file-upload-text">
+                            <i data-lucide="upload-cloud"></i>
+                            <p>Clique para selecionar ou arraste o arquivo aqui</p>
+                            <span>Suporte para PDF, MP4, AVI, MOV</span>
+                        </div>
+                    </div>
+                    <div class="upload-progress" id="upload-progress" style="display: none;">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <span class="progress-text" id="progress-text">0%</span>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="video-url-group" style="display: none;">
+                    <label for="video-url">URL do Vídeo (YouTube)</label>
+                    <input type="url" id="video-url" name="videoUrl" placeholder="https://www.youtube.com/watch?v=...">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeUploadModal()">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        <i data-lucide="upload"></i>
+                        Publicar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="admin-script.js"></script>
+</body>
+</html>

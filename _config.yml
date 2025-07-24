@@ -1,0 +1,28 @@
+# GitHub Pages Configuration for DEVGERO
+title: "DEVGERO - Sistema de Estudos Colaborativo"
+description: "Portal de estudos colaborativo da turma - Vídeos, PDFs e materiais organizados"
+author: "GERO"
+
+# GitHub Pages settings
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Exclude files from build
+exclude:
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - vercel.json
+  - api/
+  - README.md
+  - .gitignore
+
+# Include all HTML, CSS, JS files
+include:
+  - index.html
+  - admin.html
+  - styles.css
+  - admin-styles.css
+  - script.js
+  - admin-script.js

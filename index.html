@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEVGERO - Sistema de Estudos Colaborativo</title>
+    <meta name="description" content="Portal de estudos colaborativo da turma - Vídeos, PDFs e materiais organizados">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Deployment Configuration -->
+    <script src="deploy-config.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">
+                    <span class="logo-dev">DEV</span><span class="logo-gero">GERO</span>
+                </span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Início</a>
+                <a href="#videos" class="nav-link">Vídeos</a>
+                <a href="#livros" class="nav-link">Livros</a>
+                <a href="#materiais" class="nav-link">Materiais</a>
+                <a href="#sobre" class="nav-link">Sobre</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Portal de Estudos
+                        <span class="gradient-text">DEVGERO</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Criado por GERO para facilitar o acesso aos materiais de estudo da turma. 
+                        Vídeos explicativos, livros em PDF e recursos organizados por disciplina.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <i data-lucide="play-circle"></i>
+                            <span>45+ Vídeos</span>
+                        </div>
+                        <div class="stat-item">
+                            <i data-lucide="book-open"></i>
+                            <span>28 Livros</span>
+                        </div>
+                        <div class="stat-item">
+                            <i data-lucide="users"></i>
+                            <span>120+ Estudantes</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#videos" class="btn btn-primary">
+                            <i data-lucide="play"></i>
+                            Assistir Vídeos
+                        </a>
+                        <a href="#livros" class="btn btn-secondary">
+                            <i data-lucide="download"></i>
+                            Baixar Livros
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-profile">
+                    <div class="profile-image">
+                        <img src="images/hero.png" alt="GERO - Criador do DEVGERO" class="profile-photo">
+                        <div class="profile-badge">
+                            <i data-lucide="crown"></i>
+                            <span>Criador</span>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h3>GERO</h3>
+                        <p>Desenvolvedor & Criador do Portal</p>
+                        <div class="profile-social">
+                            <div class="social-item">
+                                <i data-lucide="graduation-cap"></i>
+                                <span>Estudante</span>
+                            </div>
+                            <div class="social-item">
+                                <i data-lucide="code-2"></i>
+                                <span>Developer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Disciplinas Disponíveis</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-category="matematica">
+                    <div class="category-icon">
+                        <i data-lucide="calculator"></i>
+                    </div>
+                    <h3>Matemática</h3>
+                    <p>Cálculo, Álgebra Linear, Estatística</p>
+                    <div class="category-stats">
+                        <span><i data-lucide="video"></i> 12 vídeos</span>
+                        <span><i data-lucide="file-text"></i> 8 PDFs</span>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="programacao">
+                    <div class="category-icon">
+                        <i data-lucide="code"></i>
+                    </div>
+                    <h3>Programação</h3>
+                    <p>Python, JavaScript, Algoritmos</p>
+                    <div class="category-stats">
+                        <span><i data-lucide="video"></i> 18 vídeos</span>
+                        <span><i data-lucide="file-text"></i> 12 PDFs</span>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="fisica">
+                    <div class="category-icon">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h3>Física</h3>
+                    <p>Mecânica, Eletromagnetismo</p>
+                    <div class="category-stats">
+                        <span><i data-lucide="video"></i> 9 vídeos</span>
+                        <span><i data-lucide="file-text"></i> 5 PDFs</span>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="engenharia">
+                    <div class="category-icon">
+                        <i data-lucide="settings"></i>
+                    </div>
+                    <h3>Engenharia</h3>
+                    <p>Circuitos, Sistemas, Projetos</p>
+                    <div class="category-stats">
+                        <span><i data-lucide="video"></i> 6 vídeos</span>
+                        <span><i data-lucide="file-text"></i> 3 PDFs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos" class="videos-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Vídeos Explicativos</h2>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">Todos</button>
+                    <button class="filter-tab" data-filter="matematica">Matemática</button>
+                    <button class="filter-tab" data-filter="programacao">Programação</button>
+                    <button class="filter-tab" data-filter="fisica">Física</button>
+                </div>
+            </div>
+            
+            <div class="videos-grid" id="videos-grid">
+                <!-- Matemática -->
+                <div class="video-card" data-category="matematica">
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Cálculo I - Limites">
+                        <div class="play-button">
+                            <i data-lucide="play"></i>
+                        </div>
+                        <span class="video-duration">15:30</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Cálculo I - Introdução aos Limites</h3>
+                        <p>Conceitos fundamentais de limites com exemplos práticos</p>
+                        <div class="video-meta">
+                            <span><i data-lucide="clock"></i> 15 min</span>
+                            <span><i data-lucide="eye"></i> 234 views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card" data-category="programacao">
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Python Básico">
+                        <div class="play-button">
+                            <i data-lucide="play"></i>
+                        </div>
+                        <span class="video-duration">22:45</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Python Básico - Estruturas de Dados</h3>
+                        <p>Listas, dicionários e tuplas em Python</p>
+                        <div class="video-meta">
+                            <span><i data-lucide="clock"></i> 22 min</span>
+                            <span><i data-lucide="eye"></i> 189 views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card" data-category="matematica">
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Derivadas">
+                        <div class="play-button">
+                            <i data-lucide="play"></i>
+                        </div>
+                        <span class="video-duration">18:20</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Derivadas - Regras Básicas</h3>
+                        <p>Regra da cadeia, produto e quociente</p>
+                        <div class="video-meta">
+                            <span><i data-lucide="clock"></i> 18 min</span>
+                            <span><i data-lucide="eye"></i> 156 views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card" data-category="fisica">
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Cinemática">
+                        <div class="play-button">
+                            <i data-lucide="play"></i>
+                        </div>
+                        <span class="video-duration">25:10</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Cinemática - Movimento Uniforme</h3>
+                        <p>Equações do movimento e gráficos</p>
+                        <div class="video-meta">
+                            <span><i data-lucide="clock"></i> 25 min</span>
+                            <span><i data-lucide="eye"></i> 203 views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card" data-category="programacao">
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="JavaScript">
+                        <div class="play-button">
+                            <i data-lucide="play"></i>
+                        </div>
+                        <span class="video-duration">30:15</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>JavaScript - Funções e Escopo</h3>
+                        <p>Funções arrow, closures e hoisting</p>
+                        <div class="video-meta">
+                            <span><i data-lucide="clock"></i> 30 min</span>
+                            <span><i data-lucide="eye"></i> 167 views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card" data-category="matematica">
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Integrais">
+                        <div class="play-button">
+                            <i data-lucide="play"></i>
+                        </div>
+                        <span class="video-duration">27:30</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Integrais - Técnicas de Integração</h3>
+                        <p>Substituição e integração por partes</p>
+                        <div class="video-meta">
+                            <span><i data-lucide="clock"></i> 27 min</span>
+                            <span><i data-lucide="eye"></i> 198 views</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section id="livros" class="books-section">
+        <div class="container">
+            <h2 class="section-title">Biblioteca Digital</h2>
+            <div class="books-grid">
+                <div class="book-card">
+                    <div class="book-cover">
+                        <i data-lucide="book-open"></i>
+                        <div class="book-overlay">
+                            <button class="btn-download">
+                                <i data-lucide="download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Cálculo - James Stewart</h3>
+                        <p class="book-author">Volume I - 8ª Edição</p>
+                        <div class="book-meta">
+                            <span><i data-lucide="file"></i> PDF</span>
+                            <span><i data-lucide="hard-drive"></i> 45.2 MB</span>
+                        </div>
+                        <div class="book-tags">
+                            <span class="tag">Matemática</span>
+                            <span class="tag">Cálculo</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <i data-lucide="code-2"></i>
+                        <div class="book-overlay">
+                            <button class="btn-download">
+                                <i data-lucide="download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Python Crash Course</h3>
+                        <p class="book-author">Eric Matthes - 2ª Edição</p>
+                        <div class="book-meta">
+                            <span><i data-lucide="file"></i> PDF</span>
+                            <span><i data-lucide="hard-drive"></i> 28.7 MB</span>
+                        </div>
+                        <div class="book-tags">
+                            <span class="tag">Programação</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <i data-lucide="zap"></i>
+                        <div class="book-overlay">
+                            <button class="btn-download">
+                                <i data-lucide="download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Física - Halliday & Resnick</h3>
+                        <p class="book-author">Volume 1 - 10ª Edição</p>
+                        <div class="book-meta">
+                            <span><i data-lucide="file"></i> PDF</span>
+                            <span><i data-lucide="hard-drive"></i> 67.3 MB</span>
+                        </div>
+                        <div class="book-tags">
+                            <span class="tag">Física</span>
+                            <span class="tag">Mecânica</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <i data-lucide="brain"></i>
+                        <div class="book-overlay">
+                            <button class="btn-download">
+                                <i data-lucide="download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Algoritmos - Cormen</h3>
+                        <p class="book-author">3ª Edição Traduzida</p>
+                        <div class="book-meta">
+                            <span><i data-lucide="file"></i> PDF</span>
+                            <span><i data-lucide="hard-drive"></i> 52.1 MB</span>
+                        </div>
+                        <div class="book-tags">
+                            <span class="tag">Algoritmos</span>
+                            <span class="tag">Estruturas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <i data-lucide="database"></i>
+                        <div class="book-overlay">
+                            <button class="btn-download">
+                                <i data-lucide="download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Álgebra Linear - Gilbert Strang</h3>
+                        <p class="book-author">4ª Edição MIT</p>
+                        <div class="book-meta">
+                            <span><i data-lucide="file"></i> PDF</span>
+                            <span><i data-lucide="hard-drive"></i> 38.9 MB</span>
+                        </div>
+                        <div class="book-tags">
+                            <span class="tag">Matemática</span>
+                            <span class="tag">Linear</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <i data-lucide="cpu"></i>
+                        <div class="book-overlay">
+                            <button class="btn-download">
+                                <i data-lucide="download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Sistemas Digitais - Tocci</h3>
+                        <p class="book-author">11ª Edição</p>
+                        <div class="book-meta">
+                            <span><i data-lucide="file"></i> PDF</span>
+                            <span><i data-lucide="hard-drive"></i> 41.5 MB</span>
+                        </div>
+                        <div class="book-tags">
+                            <span class="tag">Engenharia</span>
+                            <span class="tag">Digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section id="materiais" class="materials-section">
+        <div class="container">
+            <h2 class="section-title">Materiais Complementares</h2>
+            <div class="materials-grid">
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i data-lucide="file-text"></i>
+                    </div>
+                    <div class="material-info">
+                        <h3>Resumos de Cálculo I</h3>
+                        <p>Resumos completos das principais fórmulas e conceitos</p>
+                        <div class="material-meta">
+                            <span>PDF • 12 páginas</span>
+                            <button class="btn-small">
+                                <i data-lucide="download"></i>
+                                Baixar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i data-lucide="clipboard-list"></i>
+                    </div>
+                    <div class="material-info">
+                        <h3>Lista de Exercícios - Python</h3>
+                        <p>100 exercícios práticos com soluções comentadas</p>
+                        <div class="material-meta">
+                            <span>PDF • 45 páginas</span>
+                            <button class="btn-small">
+                                <i data-lucide="download"></i>
+                                Baixar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i data-lucide="presentation"></i>
+                    </div>
+                    <div class="material-info">
+                        <h3>Slides - Física Moderna</h3>
+                        <p>Apresentações das aulas de relatividade e quântica</p>
+                        <div class="material-meta">
+                            <span>PPTX • 8 arquivos</span>
+                            <button class="btn-small">
+                                <i data-lucide="download"></i>
+                                Baixar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i data-lucide="calculator"></i>
+                    </div>
+                    <div class="material-info">
+                        <h3>Formulário de Estatística</h3>
+                        <p>Todas as fórmulas organizadas por tópico</p>
+                        <div class="material-meta">
+                            <span>PDF • 6 páginas</span>
+                            <button class="btn-small">
+                                <i data-lucide="download"></i>
+                                Baixar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Sobre o DEVGERO</h2>
+                    <p>
+                        O DEVGERO é um portal de estudos colaborativo criado para facilitar o acesso 
+                        aos materiais acadêmicos da nossa turma. Aqui você encontra vídeos explicativos, 
+                        livros digitalizados e materiais complementares organizados por disciplina.
+                    </p>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i data-lucide="check-circle"></i>
+                            <span>Conteúdo organizado por disciplinas</span>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="check-circle"></i>
+                            <span>Vídeos explicativos de qualidade</span>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="check-circle"></i>
+                            <span>Biblioteca digital completa</span>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="check-circle"></i>
+                            <span>Acesso gratuito para toda turma</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-box">
+                        <h3>45+</h3>
+                        <p>Vídeos Explicativos</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>28</h3>
+                        <p>Livros Digitais</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>120+</h3>
+                        <p>Estudantes Ativos</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>8</h3>
+                        <p>Disciplinas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i data-lucide="code-2"></i>
+                        </div>
+                        <span class="logo-text">
+                            <span class="logo-dev">DEV</span><span class="logo-gero">GERO</span>
+                        </span>
+                    </div>
+                    <p>Portal de estudos colaborativo da turma</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navegação</h4>
+                        <a href="#home">Início</a>
+                        <a href="#videos">Vídeos</a>
+                        <a href="#livros">Livros</a>
+                        <a href="#materiais">Materiais</a>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Disciplinas</h4>
+                        <a href="#matematica">Matemática</a>
+                        <a href="#programacao">Programação</a>
+                        <a href="#fisica">Física</a>
+                        <a href="#engenharia">Engenharia</a>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Contato</h4>
+                        <a href="mailto:gero@estudos.com">gero@estudos.com</a>
+                        <a href="#whatsapp">WhatsApp da Turma</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 DEVGERO. Criado por GERO para a turma.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="video-container">
+                <iframe id="video-iframe" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
